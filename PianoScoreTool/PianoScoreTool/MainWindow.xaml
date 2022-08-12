@@ -1,0 +1,29 @@
+﻿<Window
+    x:Class="PianoScoreTool.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PianoScoreTool"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <NavigationView
+        Name="AppNav"
+        Grid.Row="1"
+        PaneDisplayMode="Top"
+        IsBackButtonVisible="Collapsed"
+        IsBackEnabled="False"
+        IsPaneOpen="True"
+        IsSettingsVisible="False"
+        ItemInvoked="AppNav_ItemInvoked">
+        <NavigationView.MenuItems>
+            <NavigationViewItem
+                IsSelected="True"
+                Content="乐谱处理" />
+            <NavigationViewItem
+                IsSelected="True"
+                Content="Demo下载" />
+        </NavigationView.MenuItems>
+        <Frame
+            Name="ContentFrame" />
+    </NavigationView>
+</Window>

@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="PianoScoreTool.Views.MusicScorePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PianoScoreTool.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid
+        VerticalAlignment="Top"
+        Margin="20,20,20,0">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="150" />
+            <RowDefinition
+                Height="auto" />
+            <RowDefinition
+                Height="auto" />
+        </Grid.RowDefinitions>
+        <TextBox
+            Grid.Row="0"
+            Margin="0,0,0,15"
+            Header="处理结果"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            TextWrapping="Wrap"
+            IsReadOnly="True"
+            Text="{x:Bind MusicScoreVM.MusicScoreM.Log,Mode=OneWay}" />
+        <TextBox
+            Grid.Row="1"
+            Margin="0,0,0,15"
+            Header="乐谱文件夹"
+            TextWrapping="NoWrap"
+            Text="{x:Bind MusicScoreVM.MusicScoreM.FolderPath,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+        <StackPanel
+            Grid.Row="2"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Margin="0,0,15,0"
+                Content="开始处理"
+                Command="{x:Bind MusicScoreVM.MusicScoreOperateCommand}" />
+            <CheckBox
+                Content="同时下载音频demo"
+                IsChecked="{x:Bind MusicScoreVM.MusicScoreM.IsGetAudio}" />
+        </StackPanel>
+    </Grid>
+</Page>
